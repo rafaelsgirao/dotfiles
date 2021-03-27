@@ -203,8 +203,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 
 ## Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play-pause
+#bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
@@ -219,3 +219,5 @@ exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id kdeconnect-indicator 
 exec --no-startup-id xrandr --output DP-2 --primary --left-of HDMI-0
 exec --no-startup-id rambox
+exec --no-startup-id xset dpms 120
+exec --no-startup-id noisetorch -i
