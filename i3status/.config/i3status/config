@@ -21,6 +21,7 @@ order += "cpu_usage"
 order += "cpu_temperature 0"
 #order += "memory"
 order += "tztime local"
+order += "volume master"
 
 wireless _first_ {
         format_up = "📶 quality at %essid) %ip"
@@ -69,4 +70,9 @@ cpu_temperature 0 {
 	}
 cpu_usage {
 	format = "CPU: %usage"	
+}
+volume master {
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "pulse"
 }

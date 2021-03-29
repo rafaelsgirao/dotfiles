@@ -9,13 +9,18 @@ i3status -> i3 status bar info
 Spicetify -> Customize Spotify with themes/Extensions
 Powercord -> Extends discord with plugins
 Flameshot -> Screenshot tool
-Rambox -> Yes.
+Rambox (AUR)-> Yes.
 Redshift -> Saves your eyes from burning at night.
 xrandr/arandr -> Set primary monitor on start
 KDEConnect -> Mirror phone/PC notifications + other features
 playerctl -> Control media player with keyboard buttons
 Alacritty -> Terminal emulator (bugs on SSH connections for some reason)
 feh -> Image viewer
-noto-fonts-cjk -> Support for weird characters (e.g shrug kaomoji)
+noto-fonts-cjk (AUR) -> Support for weird characters (e.g shrug kaomoji)
 
-noto-fonts-emoji -> Support for emoji characters (used in i3status)
+noto-fonts-emoji (AUR) -> Support for emoji characters (used in i3status)
+lxappearance -> setting theme
+adapta-gtk-theme -> GTK Theme I use (specificoally Adapta-Nokto)
+discord-canary -> Canary is a requirement to use Powercord
+
+neovim -> better than vim.
