@@ -1,6 +1,3 @@
-[submodule "powercord/.config/powercord/src/Powercord/plugins/quick-XKCD"]
-	path = powercord/.config/powercord/src/Powercord/plugins/quick-XKCD
-	url = git@github.com:D-Brox/quick-XKCD.git
 [submodule "powercord/.config/powercord/src/Powercord/plugins/game-activity-toggle"]
 	path = powercord/.config/powercord/src/Powercord/plugins/game-activity-toggle
 	url = git@github.com:Juby210/game-activity-toggle.git
@@ -22,9 +19,6 @@
 [submodule "powercord/.config/powercord/src/Powercord/plugins/better-replies"]
 	path = powercord/.config/powercord/src/Powercord/plugins/better-replies
 	url = git@github.com:cyyynthia/better-replies.git
-[submodule "powercord/.config/powercord/src/Powercord/plugins/hide-nicks"]
-	path = powercord/.config/powercord/src/Powercord/plugins/hide-nicks
-	url = https://github.com/SebbyLaw/hide-nicks
 [submodule "powercord/.config/powercord/src/Powercord/plugins/powercord-open-in-spotify"]
 	path = powercord/.config/powercord/src/Powercord/plugins/powercord-open-in-spotify
 	url = git@github.com:lorencerri/powercord-open-in-spotify.git

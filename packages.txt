@@ -7,7 +7,7 @@ i3lock -> lockscreen
 
 i3status -> i3 status bar info
 Spicetify -> Customize Spotify with themes/Extensions
-Powercord -> Extends discord with plugins
+Powercord (https://powercord.dev/installation) -> Extends discord with plugins
 Flameshot -> Screenshot tool
 Rambox (AUR)-> Yes.
 Redshift -> Saves your eyes from burning at night.
@@ -23,4 +23,17 @@ lxappearance -> setting theme
 adapta-gtk-theme -> GTK Theme I use (specificoally Adapta-Nokto)
 discord-canary -> Canary is a requirement to use Powercord
 
-neovim -> better than vim.
+neovim -> better than vim
+activitywatch-bin -> time tracker
+discover-overlay -> discord overlay
+dunst -> notification displayer
+Acknowledgements/Credits
+node, git -> Needed to install powercord
+Alacritty Nord theme from https://github.com/eendroroy/alacritty-theme/
+
+This dotfiles repo was inspired by https://github.com/diogotcorreia/dotfiles
+
+Installing powercord: Follow the instructions here https://powercord.dev/installation
+Make sure the cloned repo gets cloned at ~/.config/powercord !
+More to come (I promise I'll make a pretty markdown out of this file someday)
+

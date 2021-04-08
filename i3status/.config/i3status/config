@@ -24,7 +24,7 @@ order += "tztime local"
 order += "volume master"
 
 wireless _first_ {
-        format_up = "📶 quality at %essid) %ip"
+        format_up = "📶 %quality @ %essid %ip"
         format_down = "📶 down"
 }
 
@@ -51,26 +51,33 @@ tztime local {
         format = "%d-%m-%Y %H:%M:%S"
         #format = "%Y-%m-%d %H:%M:%S"
 }
+
 battery 0 {
         format = "%status %percentage %remaining %emptytime"
         format_down = "No battery"
         status_chr = "⚡ CHR"
         status_bat = "🔋 BAT"
         status_unk = "? UNK"
-        status_full = "✅ FULL"
+        status_full = "✅"
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 20
 }
+
 path_exists VPN {
         # path exists when a VPN tunnel launched by nmcli/nm-applet is active
         path = "/proc/sys/net/ipv4/conf/tun0"
+	format_down = ""
+	format = "VPN"
 }
+
 cpu_temperature 0 {
-	format = "T: %degreesºC"
+	format = "%degreesºC"
 	}
+
 cpu_usage {
 	format = "CPU: %usage"	
 }
+
 volume master {
         format = "♪: %volume"
         format_muted = "♪: muted (%volume)"
