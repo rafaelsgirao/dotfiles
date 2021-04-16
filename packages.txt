@@ -1,38 +1,17 @@
-xbacklight -> manage laptop screen brightness
 yubikey-agent -> ssh agent for Yubikey
 gpg-agent -> gpg agent for the yubikey (These two conflict, need to work it out)
-Noisetorch -> noise suppression
-i3 -> window manager
-i3lock -> lockscreen
-
-i3status -> i3 status bar info
-Spicetify -> Customize Spotify with themes/Extensions
 Powercord (https://powercord.dev/installation) -> Extends discord with plugins
-Flameshot -> Screenshot tool
+
 Rambox (AUR)-> Yes.
 Redshift -> Saves your eyes from burning at night.
 xrandr/arandr -> Set primary monitor on start
-KDEConnect -> Mirror phone/PC notifications + other features
-playerctl -> Control media player with keyboard buttons
-Alacritty -> Terminal emulator (bugs on SSH connections for some reason)
-feh -> Image viewer
-noto-fonts-cjk (AUR) -> Support for weird characters (e.g shrug kaomoji)
-
-noto-fonts-emoji (AUR) -> Support for emoji characters (used in i3status)
-lxappearance -> setting theme
-adapta-gtk-theme -> GTK Theme I use (specificoally Adapta-Nokto)
 discord-canary -> Canary is a requirement to use Powercord
 
-neovim -> better than vim
 activitywatch-bin -> time tracker
-discover-overlay -> discord overlay
-dunst -> notification displayer
+
 Acknowledgements/Credits
 node, git -> Needed to install powercord
 Alacritty Nord theme from https://github.com/eendroroy/alacritty-theme/
-
-This dotfiles repo was inspired by https://github.com/diogotcorreia/dotfiles
-
 Installing powercord: Follow the instructions here https://powercord.dev/installation
 Make sure the cloned repo gets cloned at ~/.config/powercord !
 More to come (I promise I'll make a pretty markdown out of this file someday)

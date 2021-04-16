@@ -1,0 +1,7 @@
+#!/bin/bash
+#ts=`date +%s
+ts=`date +'%d-%m-%Y %H-%M-%S'`
+mkdir -p ~/Intruders
+ffmpeg -f video4linux2 -s vga -i /dev/video0 -vframes 1 "$HOME/Intruders/Intruder $ts.%01d.jpg"
+notify-send -u critical -t 0 "Security Alert" "Wrong password entered somewhere"
+exit 0  #important - has to exit with status 0

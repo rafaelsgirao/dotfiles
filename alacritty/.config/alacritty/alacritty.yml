@@ -1,5 +1,6 @@
 # Colors (Nord)
 # Theme taken from https://github.com/eendroroy/alacritty-theme/
+background_opacity: 0.8
 colors:
   # Default colors
   primary:
