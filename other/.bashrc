@@ -9,10 +9,10 @@ PS1='[\u@\h \W]\$ '
 
 export PATH=$PATH:/home/rg/.local/bin
 
-#if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-#    startx &> /dev/null
-#    exit
-#fi
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+    startx &> /dev/null
+    exit
+fi
 
 export SSH_AUTH_SOCK="/home/rg/yubikey-agent.sock"
 
@@ -44,10 +44,14 @@ lockscreen() {
  i3lock -i ~/.config/i3/i3lock.png -t -e -f -k -S --indicator --keylayout 2 --pass-media-keys --pass-screen-keys --pass-volume-keys --pass-power-keys 
 }
 
-start_wifi () {
+wifi () {
   sudo killall wpa-supplicant
   sudo systemctl stop wpa_supplicant
   sudo wpa_supplicant -B -i wlo1 -c /etc/wpa_supplicant/wpa_supplicant.conf
+}
+
+vpn() {
+  sudo openvpn ~/.tecnico.ovpn --daemon ist_vpn
 }
 
 sway_sal() {
@@ -61,7 +65,3 @@ rcu() {
   source env-rcu/bin/activate
   python main.py &
 }
-vpn() {
-  sudo openvpn ~/.tecnico.ovpn --daemon ist_vpn
-}
-

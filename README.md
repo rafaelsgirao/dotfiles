@@ -2,6 +2,8 @@
 
 These are the dotfiles for my Arch Linux setup.
 
+![Sample Screenshot](Example.png)
+
 ## Installation
 
 Clone the repo and use stow (or create symlinks) to link to the correct directories.
