@@ -7,14 +7,14 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-export PATH=$PATH:/home/rg/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
     startx &> /dev/null
     exit
 fi
 
-export SSH_AUTH_SOCK="/home/rg/yubikey-agent.sock"
+export SSH_AUTH_SOCK="$HOME/yubikey-agent.sock"
 
 
 resetcard() {
@@ -51,9 +51,12 @@ wifi () {
 }
 
 vpn() {
-  sudo openvpn ~/.tecnico.ovpn --daemon ist_vpn
+  sudo openvpn --config $HOME/.tecnico.ovpn --daemon ist_vpn 
 }
 
+kvpn() {
+	sudo killall openvpn
+}
 sway_sal() {
   playerctl pause
   playerctl pause -p spotify
@@ -64,4 +67,14 @@ rcu() {
   cd ~/rcu/rcu/src/
   source env-rcu/bin/activate
   python main.py &
+}
+#Obviously you probably don't want this if you don't use gems/ruby 
+PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin/
+
+yt() {
+   youtube-dl -i $1 -o - | mpv - &
+}
+
+susu() {
+	sudo su - $1
 }

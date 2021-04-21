@@ -9,10 +9,15 @@
 general {
         colors = true
         interval = 5
+	color = "#808080"
 }
 #order += "ipv6"
+order += "spotify"
+order += "pomodoro"
+order += "kdeconnector"
 order += "wireless _first_"
-order += "ethernet _first_"
+#order += "ethernet _first_"
+order += "coin_market"
 order += "battery 0"
 order += "disk /"
 order += "path_exists VPN"
@@ -32,10 +37,12 @@ wireless _first_ {
 ethernet _first_ {
         format_up = "🔗 %ip"
         format_down = ""
+	color_good = "#808080"
 }
 
 disk "/" {
         format = "💾 %avail"
+
 }
 
 load {
@@ -73,7 +80,7 @@ path_exists VPN {
 
 cpu_temperature 0 {
 	format = "%degreesºC"
-	}
+}
 
 cpu_usage {
 	format = "CPU %usage"	
@@ -83,4 +90,30 @@ volume master {
         format = "♪ %volume"
         format_muted = "♪: muted (%volume)"
         device = "pulse"
+}
+
+kdeconnector{
+	format = '☎️' 
+	format_disconnected = ""
+
+}
+
+spotify {
+	format = "{artist} ➤ {title}"
+	format_stopped = ""
+	format_down = ""
+        color_good = "#808080"
+}
+pomodoro {
+	format = "{mm}min"
+	format_active = "🍅 {mm} min"
+	format_stopped = "🍅"
+	sound_pomodoro_start = "~/.config/i3status/pomodoro-alarm.mp3"
+	sound_pomodoro_end = "~/.config/i3status/pomodoro-alarm.mp3"
+	sound_break_end = "~/.config/i3status/pomodoro-alarm.mp3"
+}
+coin_market {
+	api_key = "a8b2e0bb-c037-466c-9643-de1456d60447"
+	format_coin = "{symbol} €{eur_price:.2f} [\?color=eur_percent_change_24h {eur_percent_change_24h:.2f}%]"
+	markets = ['bat' ]
 }
