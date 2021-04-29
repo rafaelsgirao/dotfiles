@@ -41,17 +41,26 @@ font pango:monospace 10
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
-# Use pactl to adjust volume in PulseAudio.
+#Media and Volume keys
+# ---------------------
+##Volume Keys
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+## Media player controls
+bindsym XF86AudioPlay exec playerctl -p spotify play-pause
+#bindsym XF86AudioPause exec playerctl -p spotify pause
+bindsym XF86AudioNext exec playerctl -p spotify next
+bindsym XF86AudioPrev exec playerctl -p spotify previous
+
+##Media player controls again, but different 
+bindcode $mod+75 exec playerctl -p spotify play-pause
+bindcode $mod+74 exec playerctl -p spotify previous
+bindcode $mod+76 exec playerctl -p spotify next
+#----------------------
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -62,9 +71,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+#bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+ bindsym $mod+d exec rofi -show drun -columns 3
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -206,49 +216,57 @@ tray_output primary
 font pango:DejaVu Sans Mono 10
 separator_symbol "|" 
 }
+
 bindsym $mod+b exec --no-startup-id "/bin/bash -c -i lockscreen" 
 
 bindsym $mod+Shift+b exec --no-startup-id "/bin/bash -c -i sal" 
 bindsym Print exec flameshot gui -p ~/Screenshots
 
-#Copy pasted from https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html 
-
-# Pulse Audio controls
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+# Screen brightness controls
+# Requires the "bin" folder to be stowed
+bindsym XF86MonBrightnessUp exec brightness.sh inc # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightness.sh dec # decrease screen brightness
 
 
-## Media player controls
-bindsym XF86AudioPlay exec playerctl -p spotify play-pause
-#bindsym XF86AudioPause exec playerctl -p spotify pause
-bindsym XF86AudioNext exec playerctl -p spotify next
-bindsym XF86AudioPrev exec playerctl -p spotify previous
+#Open Deadd Notification center
+bindcode 133 --release exec "kill -s USR1 $(pidof deadd-notification-center)"
+
+#Enable float for some windows - taken from https://github.com/da-edra/dotfiles
+# Enable float for some windows
+for_window [class="^Pavucontrol$"] floating enable
+for_window [class="^Arandr$"] floating enable
+for_window [class="^Steam$" title="^Friends List$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
+
+#Fix some windows going offscreen
+# From https://www.reddit.com/r/i3wm/comments/b2l4a5/some_windows_goes_out_of_screen/
+#---------------------------------
+# Threshold max window size, depends on your display size
+#floating_maximum_size 1920 1080 <- Commented because i3 says it has errors :shrug: 
+# Tell every window to behave centered.
+for_window [class=".*"] move absolute position center
+# If somehow a window dare to display outside the display,
+# force it with the following keybinding to center its
+# position
+bindsym $mod+c move absolute position center
+#-----------------------------------
 
 
 assign [class="Rambox"] $ws5
-#Spotify trick taken from https://wiki.archlinux.org/index.php/i3#Default_workspace_for_Spotify
 
+
+#Spotify trick taken from https://wiki.archlinux.org/index.php/i3#Default_workspace_for_Spotify
 for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws5
 for_window [class="Inkscape"] move --no-auto-back-and-forth to workspace $ws9
 
-exec --no-startup-id redshift-gtk 
-exec --no-startup-id /usr/lib/kdeconnectd
-exec --no-startup-id kdeconnect-indicator
-#When using Discrete Graphics (Nvidia)
-exec --no-startup-id xrandr --output DP-2 --primary --left-of HDMI-0
-#When using Hybrid Graphics (Intel)
-exec --no-startup-id xrandr --output eDP1 --primary --left-of HDMI-1-0 
-exec --no-startup-id rambox
-exec --no-startup-id xset dpms 120
-exec --no-startup-id noisetorch -i
-exec --no-startup-id discover-overlay
-exec --no-startup-id dunst
-exec --no-startup-id aw-qt
-exec --no-startup-id picom 
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id discord-canary
+#Startup script (the "bin" folder needs to be stowed so this works)
+
+#exec --no-startup-id  "/bin/bash -c -i ~/.local/bin/startup.sh" 

@@ -14,9 +14,9 @@ general {
 #order += "ipv6"
 order += "spotify"
 order += "pomodoro"
-order += "kdeconnector"
+#order += "kdeconnector"
 order += "wireless _first_"
-#order += "ethernet _first_"
+order += "ethernet _first_"
 order += "coin_market"
 order += "battery 0"
 order += "disk /"
@@ -29,13 +29,13 @@ order += "tztime local"
 order += "volume master"
 
 wireless _first_ {
-        format_up = "📶%quality @ %essid %ip"
+        format_up = "%quality @ %essid"
         #format_down = "📶 down"
         format_down = ""
 }
 
 ethernet _first_ {
-        format_up = "🔗 %ip"
+        format_up = "🔗"
         format_down = ""
 	color_good = "#808080"
 }
@@ -63,9 +63,9 @@ tztime local {
 battery 0 {
         format = "%status %percentage %remaining %emptytime"
         format_down = "No battery"
-        status_chr = "⚡ CHR"
-        status_bat = "🔋 BAT"
-        status_unk = "? UNK"
+        status_chr = "⚡"
+        status_bat = "🔋"
+        status_unk = "??? "
         status_full = "✅"
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 20
@@ -111,9 +111,11 @@ pomodoro {
 	sound_pomodoro_start = "~/.config/i3status/pomodoro-alarm.mp3"
 	sound_pomodoro_end = "~/.config/i3status/pomodoro-alarm.mp3"
 	sound_break_end = "~/.config/i3status/pomodoro-alarm.mp3"
+	timer_pomodoro = 3600
+	timer_break = 1800
 }
 coin_market {
 	api_key = "a8b2e0bb-c037-466c-9643-de1456d60447"
 	format_coin = "{symbol} €{eur_price:.2f} [\?color=eur_percent_change_24h {eur_percent_change_24h:.2f}%]"
-	markets = ['bat' ]
+	markets = ['bat']
 }

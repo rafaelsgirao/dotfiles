@@ -78,3 +78,70 @@ yt() {
 susu() {
 	sudo su - $1
 }
+
+ab()  { #Short for AirBuds ON
+	if [ "$1" == "on" ]; then
+			
+	{ echo "power on"
+	  echo "scan on"
+	  echo "connect 1C:91:9D:D6:6D:BF"
+	 } | bluetoothctl
+
+ 	fi
+
+	if [ "$1" == "off" ]; then
+	echo "disconnect" | bluetoothctl
+	fi
+}
+
+bt() {
+	if [ "$1" == "off" ]; then
+		echo "power off" | bluetoothctl
+	fi
+
+	
+	if [ "$1" == "on" ]; then
+		{ echo "power on"
+		  echo "scan on"
+		} | bluetoothctl
+	fi
+
+}
+
+fans() {
+	if [ "$1" == "auto" ]; then
+		nbfc set -a -f 0
+		nbfc set -a -f 1 
+	else	
+	nbfc set -s $1 -f 0
+	nbfc set -s $1 -f 1
+	fi
+}
+
+batmode() #Aggressive optimizations to get the most out of laptop battery
+{
+	#rfkill block bluetooth
+	#sudo rmmod bluetooth
+	bt off
+	sudo x86_energy_perf_policy --all power
+	sudo powertop --auto-tune
+	noisetorch -u
+	killall kdeconnectd
+	killall kdeconnect-indicator
+	killall rambox
+	killall spotify
+	killall discover-overlay
+}
+
+atped() {
+	cd $HOME/repos/ATPED/
+	python main.py
+}
+
+export HISTFILESIZE=10000
+export HISTSIZE=10000
+shopt -s histappend
+PROMPT_COMMAND='history -a'
+export EDITOR=nvim
+export VISUAL=nvim
+
