@@ -22,23 +22,22 @@ The following packages were used:
 | `i3-gaps`                                                             | `yay`                                                                           | Window Manager                      | Desktop Environment                      |
 | `i3lock-color`                                                        | `yay`                                                                           | Lockscreen                          |                                          |
 | `py3status`                                                           | `pacman`                                                                        | Feeds info into i3's status bar     |
-| `dmenu`                                                               | `pacman`                                                                        | App Launcher                        |                                          |
+| `rofi`                                                               | `pacman`                                                                        | App Launcher                        |                                          |
 | `picom-git`                                                           | `yay`                                                                           | Compositor for X11                  | i3bar and Alacritty transparency         |
 | `inter-font`                                                          | `pacman`                                                                        | Font                                |                                          |
 | `acpilight`                                                           | `yay`                                                                           | Brightness control keybinds         |                                          |
 | `alsa-utils`, `pulseaudio`, `pulseaudio-alsa`, `pulseaudio-bluetooth` | `pacman`                                                                        | Audio support                       | Audio Management                         |  |
-| `feh`                                                                 | `pacman`                                                                        | Image viewer                        |
-| `adapta-gtk-theme`                                                    | `pacman`                                                                        | Dark mode GTK Theme                 | Theming for Nemo/GTK apps                |
+| `nordic-theme-git`                                                    | `yay`                                                                        | Dark mode GTK Theme                 | Theming for Nemo/GTK apps                |
+| `papirus-icon-theme` | `pacman` | Material design Icons | GTK Icons
 | `lxappearance`                                                        | `pacman`                                                                        | GTK Theme/Icon Manager              |
 | `deadd-notification-center-bin`                                       | `yay`                                                                           | Notification Displayer              |
 | `discover-overlay`                                                    | `yay`                                                                           | Discover Overlay                    |
 | `noisetorch`                                                          | [`manually.`](https://github.com/lawl/NoiseTorch#third-party-packages-like-aur) | Image viewer                        |
-| `feh`                                                                 | `pacman`                                                                        | Image viewer                        |
+| `eog`                                                                 | `pacman`                                                                        | Image viewer                        |
 | `nitrogen`                                                            | `pacman`                                                                        | Wallpaper Manager                   |                                          |
 | `flameshot`                                                           | `pacman`                                                                        | Screenshot tools                    |                                          |
 | `xorg-xprop`                                                          | `pacman`                                                                        | Property displayer for X            | Awesome custom titlebars for each client |
 | `imagemagick`                                                         | `pacman`                                                                        | Image viewing/manipulation          |                                          |
-| `blueman`                                                             | `pacman`                                                                        | Bluetooth management                |                                          |
 | `redshift`                                                            | `pacman`                                                                        | Color temperature of display        |                                          |
 | `upower`                                                              | `pacman`                                                                        | Battery CLI tool                    |                                          |
 | `noto-fonts-emoji`                                                    | `pacman`                                                                        | Google Noto emoji fonts             | Emoji characters on py3status            |
@@ -48,11 +47,16 @@ The following packages were used:
 | `alacritty`                                                           | `pacman`                                                                        | Terminal                            | Default Terminal Emulator                |  |  |
 | `playerctl`                                                           | `pacman`                                                                        | Media Player Controller             | Keyboard media keys                      |
 | `spicetify-cli-git`                                                   | `yay`                                                                           | Spotify Customization               | Applying themes to Spotify               |
-| `neovim`                                                              | `yay`                                                                           | Vim replacement                     | Better than vim.                         |
-| `gamemode`                                                            | `pacman`                                                                        | Temporarily boost system for gaming |
-| `python-pygame`                                                       | `pacman`                                                                         | Add sound to Pommodoros             | Add  a ring to Pommodoro in i3's bar     |
+| `neovim-nightly-bin`                                                              | `yay`                                                                           | Vim replacement                     | Use with VSCode extension                        |
+| `python-pygame`                                                       | `pacman`                                                                        | Add sound to Pommodoros             | Add  a ring to Pommodoro in i3's bar     |
+| `xcalib`                                                              | `pacman`                                                                        | Set ICC Calibration Profiles        | Color optimization on Laptop screen      |
+| `polkit-gnome` | `pacman` | Gnome Authentication Agent | Polkit access agent
+
 ## Credits
 
 - Inspired by [Diogo Correia's dotfiles](https://github.com/diogotcorreia/dotfiles)
 - I stole the wallpapers from reddit a long time ago, if you know who to credit let me know :(
 - Pomodoro alarm taken from [srikanthkanjarla's Pomodoro Timer](https://github.com/srikanthkanjarla/pomodoro-timer)
+- Rofi Configs taken from [these dotfiles](https://github.com/da-edra/dotfiles/)
+- i3 Lock script taken from [these dotfiles](https://github.com/a3p169/dotfiles)
+- i3bar nord theme taken from [these dotfiles](https://github.com/danipozo/i3-nord-dotfiles)

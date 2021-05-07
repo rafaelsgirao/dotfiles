@@ -22,12 +22,12 @@ font pango:monospace 10
 
 #i3 gaps
 # You can also use any non-zero value if you'd like to have a border
-#for_window [class=".*"] border pixel 0
-#smart_gaps on
-#smart_gaps inverse_outer
-#smart_borders on
-#smart_borders no_gaps
-
+for_window [class=".*"] border pixel 0
+smart_gaps on
+smart_gaps inverse_outer
+smart_borders on
+smart_borders no_gaps
+gaps inner 10
 #gaps inner all set 20
 #gaps outer current plus 5
 #gaps horizontal current plus 40
@@ -70,14 +70,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id dmenu_run
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
- bindsym $mod+d exec rofi -show drun -columns 3
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec rofi -show drun -columns 3
+
+bindsym --release $mod+o exec --no-startup-id "~/.config/rofi/rofi-ykman"
 
 # change focus
 bindsym $mod+j focus left
@@ -202,22 +197,70 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+# i3bar disabled in favor of polybar
+#bar {
+#	i3bar_command /usr/bin/i3bar 
+#	colors {
+#		background #00000000
+#	}
+#	status_command py3status
+#	mode dock
+#	position top
+#	output primary
+#	output nonprimary
+#	tray_output primary
+#	font pango:DejaVu Sans Mono 10
+#	separator_symbol "|" 
+#}
+# Nord theme colors
+
+set $nord0   #2E3440
+set $nord1   #3B4252
+set $nord2   #434C5E
+set $nord3   #4C566A
+set $nord4   #D8DEE9
+set $nord5   #E5E9F0
+set $nord6   #ECEFF4
+set $nord7   #8FBCBB
+set $nord8   #88C0D0
+set $nord9   #81A1C1
+set $nord10  #5E81AC
+set $nord11  #BF616A
+set $nord12  #D08770
+set $nord13  #EBCB8B
+set $nord14  #A3BE8C
+set $nord15  #B48EAD
+
 bar {
-i3bar_command /usr/bin/i3bar -t
-colors {
-	background #00000000
-}
-status_command py3status
-mode dock
-position bottom
-output primary
-output nonprimary
-tray_output primary
-font pango:DejaVu Sans Mono 10
-separator_symbol "|" 
+        #status_command i3status -c i3status.conf
+        status_command py3status
+	tray_output primary
+	font pango:Iosevka Medium 15px
+
+        height 30
+
+        colors {
+          # background #222828
+          # statusline #616D59
+
+
+          # focused_workspace  #5A8DBD #383134
+          # active_workspace   #5A8DBD #383134
+          # inactive_workspace #A9B8B5 #616D59
+          # urgent_workspace   #E93E38 #383134
+
+          background $nord0
+	  statusline $nord8
+
+          focused_workspace  $nord3  $nord8
+	  active_workspace   $nord3  $nord8
+	  inactive_workspace $nord8  $nord3
+	  urgent_workspace   $nord3 $nord15 
+
+        }
 }
 
-bindsym $mod+b exec --no-startup-id "/bin/bash -c -i lockscreen" 
+bindsym $mod+b exec --no-startup-id "lockScreen.sh" 
 
 bindsym $mod+Shift+b exec --no-startup-id "/bin/bash -c -i sal" 
 bindsym Print exec flameshot gui -p ~/Screenshots
@@ -267,6 +310,6 @@ assign [class="Rambox"] $ws5
 for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws5
 for_window [class="Inkscape"] move --no-auto-back-and-forth to workspace $ws9
 
-#Startup script (the "bin" folder needs to be stowed so this works)
+#Startup script (the "bin" folder needs to be Stowed so this works)
 
 #exec --no-startup-id  "/bin/bash -c -i ~/.local/bin/startup.sh" 

@@ -36,12 +36,8 @@ otp() {
 sal() {
   playerctl pause
   playerctl pause -p spotify
-  lockscreen 
+  lockScreen.sh 
   systemctl suspend
-}
-
-lockscreen() {
- i3lock -i ~/.config/i3/i3lock.png -t -e -f -k -S --indicator --keylayout 2 --pass-media-keys --pass-screen-keys --pass-volume-keys --pass-power-keys 
 }
 
 wifi () {
@@ -69,11 +65,8 @@ rcu() {
   python main.py &
 }
 #Obviously you probably don't want this if you don't use gems/ruby 
-PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin/
 
-yt() {
-   youtube-dl -i $1 -o - | mpv - &
-}
+PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin/
 
 susu() {
 	sudo su - $1
@@ -131,6 +124,7 @@ batmode() #Aggressive optimizations to get the most out of laptop battery
 	killall rambox
 	killall spotify
 	killall discover-overlay
+	killall jellyfin-mpv-shim
 }
 
 atped() {
