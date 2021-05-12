@@ -51,6 +51,8 @@ The following packages were used:
 | `python-pygame`                                                       | `pacman`                                                                        | Add sound to Pommodoros             | Add  a ring to Pommodoro in i3's bar     |
 | `xcalib`                                                              | `pacman`                                                                        | Set ICC Calibration Profiles        | Color optimization on Laptop screen      |
 | `polkit-gnome` | `pacman` | Gnome Authentication Agent | Polkit access agent
+| `udiskie` | `pacman` | `Automatically mount USB drives`
+| `aw-client` | [`manually.`](https://github.com/ActivityWatch/aw-client) | `Display total screen time on i3bar` | py3status module 
 
 ## Credits
 

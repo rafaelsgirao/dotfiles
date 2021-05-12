@@ -8,6 +8,7 @@
 setxkbmap pt
 #Set Laptop Screen as Primary
 xrandr --output eDP1 --primary
+xrandr --output eDP-1 --primary
 #Set Monitors Position (when using Hybrid Graphics)
 xrandr --output HDMI-1-0 --auto --right-of eDP1
 xset dpms 120
@@ -22,21 +23,23 @@ xrdb -merge ~/.Xresources
 #Stuff that keeps running in background
 #--------------------------------------
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 noisetorch -i &
 discover-overlay &
 deadd-notification-center &
 aw-qt &
-redshift-gtk &
+#redshift-gtk &
 /usr/lib/kdeconnectd &
 kdeconnect-indicator &
 rambox &
 picom &
 discord-canary &
-prime-run jellyfin-mpv-shim &
+#prime-run jellyfin-mpv-shim & - this probably is causing the kernel panics :(
 flameshot &
+fans auto & #Technically it holds for a few secs, so better keep it here
 yubikey-agent -l /home/rg/yubikey-agent.sock &
 #spotify &
-$HOME/.config/polybar/launch.sh
+#$HOME/.config/polybar/launch.sh
 udiskie --tray &
 #--------------------------------------
 

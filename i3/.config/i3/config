@@ -312,4 +312,4 @@ for_window [class="Inkscape"] move --no-auto-back-and-forth to workspace $ws9
 
 #Startup script (the "bin" folder needs to be Stowed so this works)
 
-#exec --no-startup-id  "/bin/bash -c -i ~/.local/bin/startup.sh" 
+exec --no-startup-id  "/bin/bash -c -i ~/.local/bin/startup.sh" 

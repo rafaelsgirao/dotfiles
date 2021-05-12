@@ -7,7 +7,7 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$HOME/.local/bin:$PATH
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
     startx &> /dev/null
@@ -75,7 +75,8 @@ susu() {
 ab()  { #Short for AirBuds ON
 	if [ "$1" == "on" ]; then
 			
-	{ echo "power on"
+	{ echo "select 00:1A:7D:DA:71:0A"
+	  echo "power on"
 	  echo "scan on"
 	  echo "connect 1C:91:9D:D6:6D:BF"
 	 } | bluetoothctl
@@ -89,12 +90,14 @@ ab()  { #Short for AirBuds ON
 
 bt() {
 	if [ "$1" == "off" ]; then
+		echo "select 00:1A:7D:DA:71:0A"
 		echo "power off" | bluetoothctl
 	fi
 
 	
 	if [ "$1" == "on" ]; then
-		{ echo "power on"
+		{ echo "select 00:1A:7D:DA:71:0A"
+		  echo "power on"
 		  echo "scan on"
 		} | bluetoothctl
 	fi

@@ -14,6 +14,7 @@ general {
 #order += "ipv6"
 order += "spotify"
 order += "pomodoro"
+order += "aw_screentime"
 #order += "kdeconnector"
 order += "wireless _first_"
 order += "ethernet _first_"
@@ -21,6 +22,7 @@ order += "coin_market"
 order += "battery 0"
 order += "disk /"
 order += "path_exists VPN"
+#order += vpn_status
 order += "load"
 order += "cpu_usage"
 order += "cpu_temperature 0"
@@ -78,6 +80,11 @@ path_exists VPN {
 	format = "VPN"
 }
 
+#vpn_status {
+#	format = "VPN"
+#	format_down = ""
+#}
+
 cpu_temperature 0 {
 	format = "%degreesºC"
 }
@@ -111,8 +118,8 @@ pomodoro {
 	sound_pomodoro_start = "~/.config/i3status/pomodoro-alarm.mp3"
 	sound_pomodoro_end = "~/.config/i3status/pomodoro-alarm.mp3"
 	sound_break_end = "~/.config/i3status/pomodoro-alarm.mp3"
-	timer_pomodoro = 3600
-	timer_break = 1800
+	timer_pomodoro = 1500
+	timer_break = 150
 }
 coin_market {
 	api_key = "a8b2e0bb-c037-466c-9643-de1456d60447"
