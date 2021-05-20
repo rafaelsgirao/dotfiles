@@ -142,3 +142,14 @@ PROMPT_COMMAND='history -a'
 export EDITOR=nvim
 export VISUAL=nvim
 
+
+
+#Don't want to type all that all the time
+cb() {
+	xclip -selection c
+}
+
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/share/powerline/bindings/bash/powerline.sh

@@ -11,4 +11,4 @@ fi
 BRIGHTNESS=$(xbacklight -get)
 NOTI_ID=$(notify-send.py "🔆" "$BRIGHTNESS%" \
                                \
-                         --replaces-process "brightness-popup")
+                         --replaces-process "brightness-popup" &)

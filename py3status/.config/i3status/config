@@ -11,6 +11,7 @@ general {
         interval = 5
 #	color = "#808080"
 }
+order += "cw_title"
 #order += "ipv6"
 order += "spotify"
 order += "pomodoro"
@@ -126,3 +127,4 @@ coin_market {
 	format_coin = "{symbol} €{eur_price:.2f} [\?color=eur_percent_change_24h {eur_percent_change_24h:.2f}%]"
 	markets = ['bat']
 }
+

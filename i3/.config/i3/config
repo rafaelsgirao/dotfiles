@@ -267,12 +267,11 @@ bindsym Print exec flameshot gui -p ~/Screenshots
 
 # Screen brightness controls
 # Requires the "bin" folder to be stowed
-bindsym XF86MonBrightnessUp exec brightness.sh inc # increase screen brightness
-bindsym XF86MonBrightnessDown exec brightness.sh dec # decrease screen brightness
-
+bindsym XF86MonBrightnessUp exec --no-startup-id "~/.local/bin/brightness.sh inc &"
+bindsym XF86MonBrightnessDown exec --no-startup-id "~/.local/bin/brightness.sh dec &"
 
 #Open Deadd Notification center
-bindcode 133 --release exec "kill -s USR1 $(pidof deadd-notification-center)"
+bindcode 135 --release exec "kill -s USR1 $(pidof deadd-notification-center)"
 
 #Enable float for some windows - taken from https://github.com/da-edra/dotfiles
 # Enable float for some windows

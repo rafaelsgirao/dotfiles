@@ -6,9 +6,6 @@
 #Stuff that exits right away
 #---------------------------
 setxkbmap pt
-#Set Laptop Screen as Primary
-xrandr --output eDP1 --primary
-xrandr --output eDP-1 --primary
 #Set Monitors Position (when using Hybrid Graphics)
 xrandr --output HDMI-1-0 --auto --right-of eDP1
 xset dpms 120
@@ -18,6 +15,9 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
 xinput set-prop 10 "libinput Scroll Method Enabled" 0, 0, 1
 xinput set-prop 9 "libinput Scroll Method Enabled" 0, 0, 1
 xrdb -merge ~/.Xresources
+#Set Laptop Screen as Primary
+xrandr --output eDP1 --primary
+xrandr --output eDP-1 --primary
 #--------------------------
 
 #Stuff that keeps running in background
