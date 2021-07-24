@@ -31,9 +31,9 @@ aw-qt &
 #redshift-gtk &
 /usr/lib/kdeconnectd &
 kdeconnect-indicator &
-rambox &
+#rambox &
 picom &
-discord-canary &
+#discord-canary &
 #prime-run jellyfin-mpv-shim & - this probably is causing the kernel panics :(
 flameshot &
 fans auto & #Technically it holds for a few secs, so better keep it here

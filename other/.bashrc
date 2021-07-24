@@ -29,7 +29,7 @@ iaed() {
 
 otp() {
   killall -HUP yubikey-agent
-  ykman oath code
+  ykman oath accounts code
 }
 
 #Sleep and lock -> sal
@@ -75,8 +75,7 @@ susu() {
 ab()  { #Short for AirBuds ON
 	if [ "$1" == "on" ]; then
 			
-	{ echo "select 00:1A:7D:DA:71:0A"
-	  echo "power on"
+	{ echo "power on"
 	  echo "scan on"
 	  echo "connect 1C:91:9D:D6:6D:BF"
 	 } | bluetoothctl
@@ -90,14 +89,12 @@ ab()  { #Short for AirBuds ON
 
 bt() {
 	if [ "$1" == "off" ]; then
-		echo "select 00:1A:7D:DA:71:0A"
 		echo "power off" | bluetoothctl
 	fi
 
 	
 	if [ "$1" == "on" ]; then
-		{ echo "select 00:1A:7D:DA:71:0A"
-		  echo "power on"
+		{ echo "power on"
 		  echo "scan on"
 		} | bluetoothctl
 	fi
@@ -118,14 +115,14 @@ batmode() #Aggressive optimizations to get the most out of laptop battery
 {
 	#rfkill block bluetooth
 	#sudo rmmod bluetooth
-	bt off
+#	bt off
 	sudo x86_energy_perf_policy --all power
-	sudo powertop --auto-tune
+#	sudo powertop --auto-tune
 	noisetorch -u
 	killall kdeconnectd
 	killall kdeconnect-indicator
 	killall rambox
-	killall spotify
+#	killall spotify
 	killall discover-overlay
 	killall jellyfin-mpv-shim
 }
@@ -149,6 +146,9 @@ cb() {
 	xclip -selection c
 }
 
+pjson() {
+	python -m json.tool --no-ensure-ascii --tab
+}
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1

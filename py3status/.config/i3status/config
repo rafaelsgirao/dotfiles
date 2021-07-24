@@ -44,8 +44,10 @@ ethernet _first_ {
 }
 
 disk "/" {
-        format = "💾 %avail"
-
+        format = ""
+	low_threshold = 5
+	threshold_type = "percentage_free"
+        format_below_threshold = "💾 Warning: %free left"
 }
 
 load {
@@ -96,7 +98,7 @@ cpu_usage {
 
 volume master {
         format = "♪ %volume"
-        format_muted = "♪: muted (%volume)"
+        format_muted = "♪: (%volume)"
         device = "pulse"
 }
 

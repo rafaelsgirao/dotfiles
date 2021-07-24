@@ -1,6 +1,6 @@
 # Rafael's Dotfiles
 
-These are the dotfiles for my Arch Linux setup.
+These are the dotfiles for my Nord Theme-centric Arch Linux setup.
 
 ![Sample Screenshot](Example.png)
 
@@ -53,6 +53,12 @@ The following packages were used:
 | `polkit-gnome` | `pacman` | Gnome Authentication Agent | Polkit access agent
 | `udiskie` | `pacman` | `Automatically mount USB drives`
 | `aw-client` | [`manually.`](https://github.com/ActivityWatch/aw-client) | `Display total screen time on i3bar` | py3status module 
+| `i3-workspace-names-daemon` | `pip` | Dynamic workspace icons | i3bar
+| `duf` | `yay` | Pretty 'df' alternative | 
+
+## Files you should edit right away
+- If forking this you probably won't want most of what's in my startup.sh and .bashrc , you should edit those before stowing
+- Also delete the symlinks in bin since those probably don't interest you as well
 
 ## Credits
 
